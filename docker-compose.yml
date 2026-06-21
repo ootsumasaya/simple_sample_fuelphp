@@ -21,7 +21,8 @@ services:
     command: "php -S 0.0.0.0:8080 -t public"
 
   mysql:
-    image: mysql:8.0.37
+    image: mysql:5.6
+    platform: linux/amd64
     # 1回のリクエストで受け取れるデータのサイズを上げておく
     command: --max_allowed_packet=32505856
     volumes:

@@ -8,3 +8,6 @@ docker compose run -u "$(id -u):$(id -g)" --rm app composer create-project fuel/
 docker compose up -d
 ```
 localhost:8080 にアクセスするとWelcomeページが表示される
+
+（＋phpとmysqlが接続できるように設定）
+
