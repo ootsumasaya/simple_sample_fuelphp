@@ -9,5 +9,10 @@ docker compose up -d
 ```
 localhost:8080 にアクセスするとWelcomeページが表示される
 
-（＋phpとmysqlが接続できるように設定）
 
+# User
+```bash
+docker compose run -u "$(id -u):$(id -g)" --rm app composer install
+docker compose exec app php oil g scaffold user name:string
+docker compose exec app php oil refine migrate
+```
