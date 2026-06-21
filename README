@@ -1,0 +1,10 @@
+# Docker
+```bash
+docker compose build
+# 1. コンテナ内の実行ユーザーをログイン中のユーザーにする
+# 2. docker-compose.ymlのサービス名(app)を指定
+# 3. Composerを使って雛形を生成
+docker compose run -u "$(id -u):$(id -g)" --rm app composer create-project fuel/fuel:1.8 --prefer-dist .
+docker compose up -d
+```
+localhost:8080 にアクセスするとWelcomeページが表示される
