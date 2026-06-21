@@ -1,5 +1,17 @@
 <h2>Listing <span class='muted'>Users</span></h2>
 <br>
+<?php echo Form::open(array('action' => 'user/index', 'method' => 'get', 'class' => 'form-inline')); ?>
+	<div class="form-group">
+		<?php echo Form::input('q_name', Input::get('q_name', ''), array('class' => 'form-control', 'placeholder' => 'Search by name')); ?>
+	</div>
+	<div class="form-group">
+		<?php echo Form::input('q_memo', Input::get('q_memo', ''), array('class' => 'form-control', 'placeholder' => 'Search by memo')); ?>
+	</div>
+	<div class="form-group">
+		<?php echo Form::submit('search', 'Search', array('class' => 'btn btn-primary')); ?>
+	</div>
+<?php echo Form::close(); ?>
+
 <?php if ($users): ?>
 <table class="table table-striped">
 	<thead>

@@ -4,7 +4,19 @@ class Controller_User extends Controller_Template
 
 	public function action_index()
 	{
-		$data['users'] = Model_User::find('all');
+		$q_name = trim(Input::get('q_name', ''));
+		$q_memo = trim(Input::get('q_memo', ''));
+		$query = Model_User::query();
+		if ($q_name !== '' || $q_memo !== '')
+    {
+        // 今回は「名前（name）」および「メモ（memo）」の部分一致検索の例
+        $query->where_open()
+              ->where('name', 'LIKE', "%{$q_name}%")
+              ->where('memo', 'LIKE', "%{$q_memo}%")
+              ->where_close();
+    }
+		$data['users'] = $query->get();
+
 		$this->template->title = "Users";
 		$this->template->content = View::forge('user/index', $data);
 
