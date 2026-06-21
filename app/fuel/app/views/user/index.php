@@ -5,6 +5,7 @@
 	<thead>
 		<tr>
 			<th>Name</th>
+			<th>Memo</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -12,6 +13,7 @@
 <?php foreach ($users as $item): ?>		<tr>
 
 			<td><?php echo $item->name; ?></td>
+			<td><?php echo $item->memo; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">

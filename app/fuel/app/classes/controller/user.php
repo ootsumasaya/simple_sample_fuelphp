@@ -35,6 +35,7 @@ class Controller_User extends Controller_Template
 			{
 				$user = Model_User::forge(array(
 					'name' => Input::post('name'),
+					'memo' => Input::post('memo'),
 				));
 
 				if ($user and $user->save())
@@ -75,6 +76,7 @@ class Controller_User extends Controller_Template
 		if ($val->run())
 		{
 			$user->name = Input::post('name');
+			$user->memo = Input::post('memo');
 
 			if ($user->save())
 			{
@@ -94,7 +96,7 @@ class Controller_User extends Controller_Template
 			if (Input::method() == 'POST')
 			{
 				$user->name = $val->validated('name');
-
+				$user->memo = $val->validated('memo');
 				Session::set_flash('error', $val->error());
 			}
 

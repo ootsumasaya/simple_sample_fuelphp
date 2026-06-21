@@ -2,7 +2,11 @@
 
 <p>
 	<strong>Name:</strong>
-	<?php echo $user->name; ?></p>
-
+	<?php echo $user->name; ?>
+</p>
+<p>
+	<strong>Memo:</strong>
+	<?php echo $user->memo; ?>
+</p>
 <?php echo Html::anchor('user/edit/'.$user->id, 'Edit'); ?> |
 <?php echo Html::anchor('user', 'Back'); ?>

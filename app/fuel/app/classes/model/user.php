@@ -6,6 +6,7 @@ class Model_User extends Model
 	protected static $_properties = array(
 		'id',
 		'name',
+		'memo',
 		'created_at',
 		'updated_at',
 	);
@@ -25,6 +26,7 @@ class Model_User extends Model
 	{
 		$val = Validation::forge($factory);
 		$val->add_field('name', 'Name', 'required|max_length[255]');
+		$val->add_field('memo', 'Memo', 'max_length[255]');
 
 		return $val;
 	}
