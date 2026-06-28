@@ -29,8 +29,10 @@
 
 <?php else: ?>
 <p>No Profiles.</p>
-
-<?php endif; ?><p>
+<?php endif; ?>
+<p>
 	<?php echo Html::anchor("user/{$user->id}/profile/create", 'Add new Profile', array('class' => 'btn btn-success')); ?>
-
+</p>
+<p>
+	<?php echo Html::anchor("user", 'Back', array('class' => 'btn btn-default')); ?>
 </p>
