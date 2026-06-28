@@ -22,6 +22,8 @@ class Model_User extends Model
 		),
 	);
 
+	protected static $_has_many = array('profiles');
+
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
