@@ -18,14 +18,23 @@ class Model_Profile extends \Orm\Model
 		"user_id" => array(
 			"label" => "User id",
 			"data_type" => "int",
+			"form" => array(
+				"type" => false,
+			),
 		),
 		"created_at" => array(
 			"label" => "Created at",
 			"data_type" => "int",
+			"form" => array(
+				"type" => false,
+			),
 		),
 		"updated_at" => array(
 			"label" => "Updated at",
 			"data_type" => "int",
+			"form" => array(
+				"type" => false,
+			),
 		),
 	);
 

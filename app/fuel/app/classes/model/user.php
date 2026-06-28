@@ -7,8 +7,16 @@ class Model_User extends Model
 		'id',
 		'name',
 		'memo',
-		'created_at',
-		'updated_at',
+		'created_at' => array(
+			"form" => array(
+				"type" => false,
+			),
+		),
+		'updated_at' => array(
+			"form" => array(
+				"type" => false,
+			),
+		),
 	);
 
 	protected static $_observers = array(
