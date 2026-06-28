@@ -11,3 +11,13 @@ localhost:8080 にアクセスするとWelcomeページが表示される
 
 （＋phpとmysqlが接続できるように設定）
 
+# User
+（ormが利用できるように設定してから）
+```bash
+docker compose run -u "$(id -u):$(id -g)" --rm app composer install
+docker compose exec app php oil g scaffold user name:string
+docker compose exec app php oil refine migrate 
+# メモカラムを追加
+docker compose exec app php oil generate migration add_memo_to_users memo:text:null
+docker compose exec app php oil refine migrate
+```
