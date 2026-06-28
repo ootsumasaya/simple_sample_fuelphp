@@ -16,6 +16,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Memo</th>
 			<th>&nbsp;</th>
@@ -23,13 +24,17 @@
 	</thead>
 	<tbody>
 <?php foreach ($users as $item): ?>		<tr>
-
+			<td><?php echo $item->id; ?></td>
 			<td><?php echo $item->name; ?></td>
 			<td><?php echo $item->memo; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">
-						<?php echo Html::anchor('user/view/'.$item->id, '<i class="icon-eye-open"></i> View', array('class' => 'btn btn-default btn-sm')); ?>						<?php echo Html::anchor('user/edit/'.$item->id, '<i class="icon-wrench"></i> Edit', array('class' => 'btn btn-default btn-sm')); ?>						<?php echo Html::anchor('user/delete/'.$item->id, '<i class="icon-trash icon-white"></i> Delete', array('class' => 'btn btn-sm btn-danger', 'onclick' => "return confirm('Are you sure?')")); ?>					</div>
+						<?php echo Html::anchor('user/view/'.$item->id, '<i class="icon-eye-open"></i> View', array('class' => 'btn btn-default btn-sm')); ?>
+						<?php echo Html::anchor('user/edit/'.$item->id, '<i class="icon-wrench"></i> Edit', array('class' => 'btn btn-default btn-sm')); ?>
+						<?php echo Html::anchor('user/delete/'.$item->id, '<i class="icon-trash icon-white"></i> Delete', array('class' => 'btn btn-sm btn-danger', 'onclick' => "return confirm('Are you sure?')")); ?>
+						<?php echo Html::anchor("user/{$item->id}/profile", '<i class="icon-list"></i> Profiles', array('class' => 'btn btn-default btn-sm')); ?>
+					</div>
 				</div>
 
 			</td>
