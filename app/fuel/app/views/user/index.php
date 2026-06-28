@@ -16,6 +16,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Memo</th>
 			<th>&nbsp;</th>
@@ -23,7 +24,7 @@
 	</thead>
 	<tbody>
 <?php foreach ($users as $item): ?>		<tr>
-
+			<td><?php echo $item->id; ?></td>
 			<td><?php echo $item->name; ?></td>
 			<td><?php echo $item->memo; ?></td>
 			<td>
