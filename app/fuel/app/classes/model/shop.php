@@ -50,6 +50,12 @@ class Model_Shop extends Model
     return isset($options[$this->status][$info_key]) ? $options[$this->status][$info_key] : null;
   }
 
+  public function get_change_to_status_info($info_key = 'label')
+  {
+    $options = static::status_options();
+    return isset($options[!($this->status)][$info_key]) ? $options[!($this->status)][$info_key] : null;
+  }
+
   # カスタムバリデーションの例
   public static function _validation_check_custom_name($val)
   {

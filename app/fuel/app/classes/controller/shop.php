@@ -35,4 +35,47 @@ class Controller_Shop extends Controller_Template
     $this->template->title = "Create Shop";
     $this->template->content = View::forge('shop/create', $data, false);
   }
+
+  public function action_changeStatus()
+  {
+    if( !Input::is_ajax()){
+      Response::redirect('shop/index');
+    }
+
+    $response = Response::forge();
+    $response->set_header('Content-Type', 'application/json');
+    $id = Input::post('id');
+    $status = Input::post('status');
+
+    $shop = Model_Shop::find($id);
+    if (!$shop){
+      $response->body(json_encode([
+        'status' => 'error',
+        'message' => '対象の店舗が見つかりません'
+      ]));
+      return $response;
+    }
+
+    $val = Model_Shop::validate('changeStatus');
+    $shop->status = $status;
+
+    if ($val->run($shop->to_array())){
+      $fields = $val->validated();
+      $shop->status = $fields['status'];
+      $shop->save();
+
+      $response->body(json_encode([
+        'status' => 'success',
+        'message' => "ステータスを".($shop->get_status_info('label'))."化しました"
+      ]));
+      return $response;
+    } else {
+      $errors = $val->error();
+      $response->body(json_encode([
+        'status' => 'error',
+        'message' => implode("\n",$errors)
+      ]));
+      return $response;
+    }
+  }
 }
