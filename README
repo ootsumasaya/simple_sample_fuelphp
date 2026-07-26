@@ -32,3 +32,13 @@ docker compose exec app php oil refine migrate
 ```bash
 # (特になし)
 ```
+
+# Ajax
+```bash
+# Tips
+# テーブル生成を間違えた場合
+# app/fuel/app/config/development/migrations.php のidを見て特定のバージョンに戻す
+docker compose exec app php oil refine migrate --version=3
+# ファイルを編集後、再生成
+docker compose exec app php oil refine migrate
+```
