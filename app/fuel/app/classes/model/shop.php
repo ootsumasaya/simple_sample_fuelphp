@@ -68,13 +68,15 @@ class Model_Shop extends Model
 
   public static function validate($factory)
   {
-    $val = Validation::forge($factory);
-    $val->add_callable('Model_Shop');
-    $val->add_field('name', 'Name', 'required|check_custom_name');
-    $val->add('status', 'Status')
-        ->add_rule('required')
-        ->add_rule('numeric_between',0,1);
-
+    $val = Validation::instance($factory);
+    if ( ! $val) {
+      $val = Validation::forge($factory);
+      $val->add_callable('Model_Shop');
+      $val->add_field('name', 'Name', 'required|check_custom_name');
+      $val->add('status', 'Status')
+          ->add_rule('required')
+          ->add_rule('numeric_between',0,1);
+    }
     return $val;
   }
 }
